@@ -3,7 +3,7 @@ import { Text, View, Button } from 'react-native';
 
 function TV(props) {
 
-  const[isOff, setIsOff] = useState(true);
+  const [isOff, setIsOff] = useState(true);
 
   return(
   <View>
