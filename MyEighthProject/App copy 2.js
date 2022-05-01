@@ -1,0 +1,59 @@
+import React, {Component} from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { unmountComponentAtNodeAndRemoveContainer } from 'react-native/Libraries/Renderer/implementations/ReactNativeRenderer-dev';
+
+export default class myApp extends unmountComponentAtNodeAndRemoveContainer {
+
+  constructor(props) {
+    super(props);
+    this.state = {count: 0};
+    
+  }
+
+  onTap = () => {
+
+    this.setState({
+      count: this.state.count + 1
+    });
+  }
+
+  render() {
+    const {count} = this.state;
+  return (
+    <View style={styles.container}>
+      <View style={styles.counterText}>
+      <Text> Tap Counter: {count} </Text>
+      </View>
+      <TouchableOpacity  style={styles.button} onPress={this.onTap} >
+
+        <Text> Touch Me </Text>
+
+
+      </TouchableOpacity>
+     
+    </View>
+  );
+}
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    backgroundColor: "#FFFFE0"
+  },
+
+  button: {
+    alignItems: "center",
+    backgroundColor: "#008B8B",
+    padding: 10
+  },
+
+  counterText: {
+
+    alignItems: "center",
+    padding: 10
+  }
+
+});
